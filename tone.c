@@ -40,16 +40,16 @@ DECLARE_CHANNEL(1);
 DECLARE_CHANNEL(2);
 DECLARE_CHANNEL(3);
 DECLARE_CHANNEL(4);
-DECLARE_CHANNEL(5);
-DECLARE_CHANNEL(6);
-DECLARE_CHANNEL(7);
-DECLARE_CHANNEL(8);
+// DECLARE_CHANNEL(5);
+// DECLARE_CHANNEL(6);
+// DECLARE_CHANNEL(7);
+// DECLARE_CHANNEL(8);
 
 volatile char pscalar = 0;
 
 // CHANNEL_COUNT * TANH_RESOLUTION
 // Compiler gives a warning if this is actually the above expression
-static unsigned char tanh_lookup[800];
+static unsigned char tanh_lookup[400]; //change back to 800
 
 ISR(TIMER2_OVF_vect) {
     if(!pscalar) {
@@ -60,10 +60,10 @@ ISR(TIMER2_OVF_vect) {
         SAMPLE(2, data);
         SAMPLE(3, data);
         SAMPLE(4, data);
-        SAMPLE(5, data);
-        SAMPLE(6, data);
-        SAMPLE(7, data);
-        SAMPLE(8, data);
+        // SAMPLE(5, data);
+        // SAMPLE(6, data);
+        // SAMPLE(7, data);
+        // SAMPLE(8, data);
 
         OCR0A = NORMALIZE(data);
     }

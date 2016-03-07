@@ -5,8 +5,8 @@
 #include "logic.h"
 
 short p1_key = 3;
-
-short p2_key = 3;
+//
+// short p2_key = 3;
 
 const float notes[108] = {
     16.35f, 17.32f, 18.35f, 19.45f, 20.6f, 21.83f, 23.12f, 24.5f, 25.96f,
@@ -55,6 +55,8 @@ void handle_p1() {
         } else {
             SET_CHANNEL(1, notes[p1_key * 12]);
         }
+    } else {
+        CLEAR_CHANNEL(1);
     }
 
     if(player1 & BUTTON_B) {
@@ -65,6 +67,8 @@ void handle_p1() {
         } else {
             SET_CHANNEL(2, notes[p1_key * 12 + 4]);
         }
+    } else {
+        CLEAR_CHANNEL(2);
     }
 
     if(player1 & BUTTON_X) {
@@ -75,6 +79,8 @@ void handle_p1() {
         } else {
             SET_CHANNEL(3, notes[p1_key * 12 + 7]);
         }
+    } else {
+        CLEAR_CHANNEL(3);
     }
 
     if(player1 & BUTTON_A) {
@@ -85,57 +91,59 @@ void handle_p1() {
         } else {
             SET_CHANNEL(4, notes[p1_key * 12 + 11]);
         }
-    }
-}
-// Duplication everywhere!
-void handle_p2() {
-    if (player2 & DPAD_U) {
-        p2_key = 4;
-    } else if (player2 & DPAD_D) {
-        p2_key = 2;
     } else {
-        p2_key = 3;
-    }
-    if(player2 & BUTTON_Y) {
-        if (player2 & BUTTON_R) {
-            SET_CHANNEL(5, notes[p2_key * 12 + 7]);
-        } else if (player2 & BUTTON_L) {
-                SET_CHANNEL(5, notes[p2_key * 12 + 5]);
-        }else {
-            SET_CHANNEL(5, notes[p2_key * 12]);
-        }
-    }
-
-    if(player2 & BUTTON_B) {
-        if (player2 & BUTTON_R) {
-            SET_CHANNEL(6, notes[p2_key * 12 + 11]);
-        } else if (player2 & BUTTON_L) {
-            SET_CHANNEL(6, notes[p2_key * 12 + 9]);
-        } else {
-            SET_CHANNEL(6, notes[p2_key * 12 + 4]);
-        }
-    }
-
-    if(player2 & BUTTON_X) {
-        if (player2 & BUTTON_R) {
-            SET_CHANNEL(7, notes[p2_key * 12 + 14]);
-        } else if (player2 & BUTTON_L) {
-            SET_CHANNEL(7, notes[p2_key * 12 + 12]);
-        } else {
-            SET_CHANNEL(7, notes[p2_key * 12 + 7]);
-        }
-    }
-
-    if(player2 & BUTTON_A) {
-        if (player2 & BUTTON_R) {
-            SET_CHANNEL(8, notes[p2_key * 12 + 18]);
-        } else if (player2 & BUTTON_L) {
-            SET_CHANNEL(8, notes[p2_key * 12 + 16]);
-        } else {
-            SET_CHANNEL(8, notes[p2_key * 12 + 11]);
-        }
+        CLEAR_CHANNEL(4);
     }
 }
+// // Duplication everywhere!
+// void handle_p2() {
+//     if (player2 & DPAD_U) {
+//         p2_key = 4;
+//     } else if (player2 & DPAD_D) {
+//         p2_key = 2;
+//     } else {
+//         p2_key = 3;
+//     }
+//     if(player2 & BUTTON_Y) {
+//         if (player2 & BUTTON_R) {
+//             SET_CHANNEL(5, notes[p2_key * 12 + 7]);
+//         } else if (player2 & BUTTON_L) {
+//                 SET_CHANNEL(5, notes[p2_key * 12 + 5]);
+//         }else {
+//             SET_CHANNEL(5, notes[p2_key * 12]);
+//         }
+//     }
+//
+//     if(player2 & BUTTON_B) {
+//         if (player2 & BUTTON_R) {
+//             SET_CHANNEL(6, notes[p2_key * 12 + 11]);
+//         } else if (player2 & BUTTON_L) {
+//             SET_CHANNEL(6, notes[p2_key * 12 + 9]);
+//         } else {
+//             SET_CHANNEL(6, notes[p2_key * 12 + 4]);
+//         }
+//     }
+//
+//     if(player2 & BUTTON_X) {
+//         if (player2 & BUTTON_R) {
+//             SET_CHANNEL(7, notes[p2_key * 12 + 14]);
+//         } else if (player2 & BUTTON_L) {
+//             SET_CHANNEL(7, notes[p2_key * 12 + 12]);
+//         } else {
+//             SET_CHANNEL(7, notes[p2_key * 12 + 7]);
+//         }
+//     }
+//
+//     if(player2 & BUTTON_A) {
+//         if (player2 & BUTTON_R) {
+//             SET_CHANNEL(8, notes[p2_key * 12 + 18]);
+//         } else if (player2 & BUTTON_L) {
+//             SET_CHANNEL(8, notes[p2_key * 12 + 16]);
+//         } else {
+//             SET_CHANNEL(8, notes[p2_key * 12 + 11]);
+//         }
+//     }
+// }
 
 void clear_p1() {
     CLEAR_CHANNEL(1);
@@ -144,9 +152,9 @@ void clear_p1() {
     CLEAR_CHANNEL(4);
 }
 
-void clear_p2() {
-    CLEAR_CHANNEL(5);
-    CLEAR_CHANNEL(6);
-    CLEAR_CHANNEL(7);
-    CLEAR_CHANNEL(8);
-}
+// void clear_p2() {
+//     CLEAR_CHANNEL(5);
+//     CLEAR_CHANNEL(6);
+//     CLEAR_CHANNEL(7);
+//     CLEAR_CHANNEL(8);
+// }

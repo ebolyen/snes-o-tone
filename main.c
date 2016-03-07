@@ -11,23 +11,23 @@ void handle_input() {
     switch (get_input()) {
         case 0:
             clear_p1();
-            clear_p2();
+            // clear_p2();
             break;
 
         case PLAYER1:
-            clear_p2();
+            // clear_p2();
             handle_p1();
             break;
 
-        case PLAYER2:
-            clear_p1();
-            handle_p2();
-            break;
-
-        case PLAYER1 | PLAYER2:
-            handle_p1();
-            handle_p2();
-            break;
+        // case PLAYER2:
+        //     clear_p1();
+        //     handle_p2();
+        //     break;
+        //
+        // case PLAYER1 | PLAYER2:
+        //     handle_p1();
+        //     handle_p2();
+        //     break;
     }
 }
 
